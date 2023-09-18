@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using CityInfo.API.Models;
+using CityInfoAPI.Models;
 
-namespace CityInfo.API.Controllers
+namespace CityInfoAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -17,7 +17,7 @@ namespace CityInfo.API.Controllers
         [HttpGet("{id}")]
         public ActionResult<CityDto> GetCity(int id)
         {
-            var city = CitiesDataStore.Current.City.FirstOrDefault(x => x.Id == id);
+            var city = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == id);
 
             if (city == null)
             {

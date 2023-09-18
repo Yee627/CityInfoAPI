@@ -1,7 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
-using CityInfo.API.Models;
 
-namespace CityInfo.API.Controllers
+using Microsoft.AspNetCore.Mvc;
+using CityInfoAPI.Models;
+
+namespace CityInfoAPI.Controllers
 {
     [ApiController]
     [Route("api/cities/{cityId}/[controller]")]
@@ -17,13 +18,13 @@ namespace CityInfo.API.Controllers
                 return NotFound();
             }
 
-            return Ok(city.PointsOfInterests);
+            return Ok(city.PointsOfInterest);
         }
 
         [HttpGet("{pointofinterestid}", Name = "GetPointOfInterest")]
         public ActionResult<PointOfInterestDto> GetPointOfInterest(int cityId, int pointOfInterestId)
         {
-            var city = CitiesDataStore.Current.Cities.FirstOrDefault(x = x => x.Id == cityId);
+            var city = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == cityId);
             if (city == null)
             {
                 return NotFound();
@@ -43,23 +44,23 @@ namespace CityInfo.API.Controllers
             int cityId,
             [FromBody] PointOfInterestForCreationDto pointOfInterest)
         {
-            var city = CitiesDataStore.Current.Cities.FirstOrDefault(x = x => x.Id == cityId);
+            var city = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == cityId);
             if (city == null)
             {
                 return NotFound();
             }
-            var maxPointOfInterestId = itiesDataStore.Current.Cities.SelectMany(
-                c => c.PointsOfInterests).Max(p => p.Id);
+            var maxPointOfInterestId = CitiesDataStore.Current.Cities.SelectMany(
+                c => c.PointsOfInterest).Max(p => p.Id);
 
             var finalPointOfInterest = new PointOfInterestDto()
             {
                 Id = ++maxPointOfInterestId,
                 Name = pointOfInterest.Name,
                 Description = pointOfInterest.Description
-            }
+            };
 
-            city.PointsOfInterests.Add(finalPointOfInterest);
-            return CreateAtRoute("GetPointOfInterest",
+            city.PointsOfInterest.Add(finalPointOfInterest);
+            return CreatedAtRoute("GetPointOfInterest",
                 new
                 {
                     cityId = cityId,
@@ -69,23 +70,23 @@ namespace CityInfo.API.Controllers
         }
 
         [HttpPut("{pointofinterestid}")]
-        public ActionResult UpdatePointOfInterest(int cityId, int pointOfInterestId
-            PointOfInterestForCreationDto pointOfInterest)
+        public ActionResult UpdatePointOfInterest(int cityId, int pointOfInterestId,
+            PointOfInterestForCreationDto pointOfInterestForCreation)
         {
-            var city = CitiesDataStore.Current.Cities.FirstOrDefault(x = x => x.Id == cityId);
+            var city = CitiesDataStore.Current.Cities.FirstOrDefault(x => x.Id == cityId);
             if (city == null)
             {
                 return NotFound();
             }
 
-            var pointOfInterestFromStore = city.PointsOfInterests.FirstOrDefault(c => c.Id == pointOfInterestId);
+            var pointOfInterestFromStore = city.PointsOfInterest.FirstOrDefault(c => c.Id == pointOfInterestId);
             if (pointOfInterestFromStore == null)
             {
                 return NotFound();
             }
 
-            pointOfInterestFromStore.Name = pointOfInterest.Name;
-            pointOfInterestFromStore.Description = pointOfInterest.Description;
+            pointOfInterestFromStore.Name = pointOfInterestForCreation.Name;
+            pointOfInterestFromStore.Description = pointOfInterestForCreation.Description;
 
             return NoContent();
         }

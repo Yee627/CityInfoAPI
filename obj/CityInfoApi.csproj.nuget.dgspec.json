@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoApi.csproj": {}
+    "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/CityInfoApi.csproj": {}
   },
   "projects": {
-    "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoApi.csproj": {
+    "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/CityInfoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoApi.csproj",
+        "projectUniqueName": "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/CityInfoApi.csproj",
         "projectName": "CityInfoApi",
-        "projectPath": "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoApi.csproj",
+        "projectPath": "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/CityInfoApi.csproj",
         "packagesPath": "/Users/yee/.nuget/packages/",
-        "outputPath": "/Users/yee/Downloads/CityInfo/CityInfo.API/obj/",
+        "outputPath": "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/yee/.nuget/NuGet/NuGet.Config"

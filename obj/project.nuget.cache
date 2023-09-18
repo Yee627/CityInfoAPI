@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YmzFsSzQ+Tr7u+V5mz5CJZ4VY/RN+Vd83IkozoyOUxJG+TzVs31Wrr3uGgw/L36+0ebsclewjz8GfVdN4YNnkg==",
+  "dgSpecHash": "MJkWw3l/UL02YZAZQ5s5IqBdY8eM06DYkGKy7pK51T5jUueN4nJG9Htve7RWsIyW/ozJUnyb+HrRh6bwplSnNg==",
   "success": true,
-  "projectFilePath": "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoApi.csproj",
+  "projectFilePath": "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/CityInfoApi.csproj",
   "expectedPackageFiles": [
     "/Users/yee/.nuget/packages/microsoft.aspnetcore.openapi/7.0.8/microsoft.aspnetcore.openapi.7.0.8.nupkg.sha512",
     "/Users/yee/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

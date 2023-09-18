@@ -1,6 +1,6 @@
-﻿using CityInfo.API.Models;
+﻿using CityInfoAPI.Models;
 
-namespace CityInfo.API
+namespace CityInfoAPI
 {
     public class CitiesDataStore
     {
