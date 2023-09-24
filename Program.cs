@@ -1,3 +1,8 @@
+using CityInfoAPI;
+using CityInfoAPI.DbContexts;
+using CityInfoAPI.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +16,11 @@ builder.Services.AddControllers(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddTransient<IMailService, CloudMailService>();
+builder.Services.AddSingleton<CitiesDataStore>();
+builder.Services.AddDbContext<CityInfoContext>(
+    DbContextOptions => DbContextOptions.UseSqlServer("Data Source=CityInfo.db"));
 
 var app = builder.Build();
 
