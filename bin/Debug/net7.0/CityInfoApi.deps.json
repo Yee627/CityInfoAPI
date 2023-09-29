@@ -11,7 +11,7 @@
           "Microsoft.AspNetCore.JsonPatch": "8.0.0-rc.1.23421.29",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.11",
           "Microsoft.AspNetCore.OpenApi": "7.0.8",
-          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.0-preview.1.22076.6",
+          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Microsoft.EntityFrameworkCore": "7.0.0"
@@ -65,14 +65,14 @@
         }
       },
       "Microsoft.CSharp/4.7.0": {},
-      "Microsoft.Data.Sqlite.Core/7.0.0-preview.1.22076.6": {
+      "Microsoft.Data.Sqlite.Core/7.0.0": {
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.7"
+          "SQLitePCLRaw.core": "2.1.2"
         },
         "runtime": {
           "lib/net6.0/Microsoft.Data.Sqlite.dll": {
             "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.7606"
+            "fileVersion": "7.0.22.51807"
           }
         }
       },
@@ -126,22 +126,22 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Sqlite/7.0.0-preview.1.22076.6": {
+      "Microsoft.EntityFrameworkCore.Sqlite/7.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Sqlite.Core": "7.0.0-preview.1.22076.6",
-          "SQLitePCLRaw.bundle_e_sqlite3": "2.0.7"
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "7.0.0",
+          "SQLitePCLRaw.bundle_e_sqlite3": "2.1.2"
         }
       },
-      "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.0-preview.1.22076.6": {
+      "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.0": {
         "dependencies": {
-          "Microsoft.Data.Sqlite.Core": "7.0.0-preview.1.22076.6",
+          "Microsoft.Data.Sqlite.Core": "7.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "7.0.0",
           "Microsoft.Extensions.DependencyModel": "7.0.0"
         },
         "runtime": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Sqlite.dll": {
             "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.7606"
+            "fileVersion": "7.0.22.51807"
           }
         }
       },
@@ -242,34 +242,48 @@
           }
         }
       },
-      "SQLitePCLRaw.bundle_e_sqlite3/2.0.7": {
+      "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.7",
-          "SQLitePCLRaw.lib.e_sqlite3": "2.0.7",
-          "SQLitePCLRaw.provider.e_sqlite3": "2.0.7"
+          "SQLitePCLRaw.lib.e_sqlite3": "2.1.2",
+          "SQLitePCLRaw.provider.e_sqlite3": "2.1.2"
         },
         "runtime": {
           "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {
-            "assemblyVersion": "2.0.7.1395",
-            "fileVersion": "2.0.7.1395"
+            "assemblyVersion": "2.1.2.1721",
+            "fileVersion": "2.1.2.1721"
           }
         }
       },
-      "SQLitePCLRaw.core/2.0.7": {
+      "SQLitePCLRaw.core/2.1.2": {
         "dependencies": {
           "System.Memory": "4.5.3"
         },
         "runtime": {
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {
-            "assemblyVersion": "2.0.7.1395",
-            "fileVersion": "2.0.7.1395"
+            "assemblyVersion": "2.1.2.1721",
+            "fileVersion": "2.1.2.1721"
           }
         }
       },
-      "SQLitePCLRaw.lib.e_sqlite3/2.0.7": {
+      "SQLitePCLRaw.lib.e_sqlite3/2.1.2": {
         "runtimeTargets": {
+          "runtimes/alpine-arm/native/libe_sqlite3.so": {
+            "rid": "alpine-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/alpine-arm64/native/libe_sqlite3.so": {
+            "rid": "alpine-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
           "runtimes/alpine-x64/native/libe_sqlite3.so": {
             "rid": "alpine-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/browser-wasm/nativeassets/net7.0/e_sqlite3.a": {
+            "rid": "browser-wasm",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
@@ -293,6 +307,16 @@
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
+          "runtimes/linux-musl-arm/native/libe_sqlite3.so": {
+            "rid": "linux-musl-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-arm64/native/libe_sqlite3.so": {
+            "rid": "linux-musl-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
           "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
             "rid": "linux-musl-x64",
             "assetType": "native",
@@ -310,6 +334,16 @@
           },
           "runtimes/linux-x86/native/libe_sqlite3.so": {
             "rid": "linux-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib": {
+            "rid": "maccatalyst-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/maccatalyst-x64/native/libe_sqlite3.dylib": {
+            "rid": "maccatalyst-x64",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
@@ -345,14 +379,14 @@
           }
         }
       },
-      "SQLitePCLRaw.provider.e_sqlite3/2.0.7": {
+      "SQLitePCLRaw.provider.e_sqlite3/2.1.2": {
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.7"
+          "SQLitePCLRaw.core": "2.1.2"
         },
         "runtime": {
-          "lib/net5.0/SQLitePCLRaw.provider.e_sqlite3.dll": {
-            "assemblyVersion": "2.0.7.1395",
-            "fileVersion": "2.0.7.1395"
+          "lib/net6.0/SQLitePCLRaw.provider.e_sqlite3.dll": {
+            "assemblyVersion": "2.1.2.1721",
+            "fileVersion": "2.1.2.1721"
           }
         }
       },
@@ -452,12 +486,12 @@
       "path": "microsoft.csharp/4.7.0",
       "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
-    "Microsoft.Data.Sqlite.Core/7.0.0-preview.1.22076.6": {
+    "Microsoft.Data.Sqlite.Core/7.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WKkkezNulpy8QxdH2zfSxNYNMECeTutk85g/DV0vwbNqTLeNZjGaA53ctGDOS7449iTMC0kNGMMwamNGO9GcLA==",
-      "path": "microsoft.data.sqlite.core/7.0.0-preview.1.22076.6",
-      "hashPath": "microsoft.data.sqlite.core.7.0.0-preview.1.22076.6.nupkg.sha512"
+      "sha512": "sha512-WC7SANtaFTmQ/WPyhrE96h88MrH28C7kTBenDf5Eo+IR6CbWM0Uw2pR2++tyYr3qe/zSIsIYroEupB1mLg/adw==",
+      "path": "microsoft.data.sqlite.core/7.0.0",
+      "hashPath": "microsoft.data.sqlite.core.7.0.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/7.0.0": {
       "type": "package",
@@ -494,19 +528,19 @@
       "path": "microsoft.entityframeworkcore.relational/7.0.0",
       "hashPath": "microsoft.entityframeworkcore.relational.7.0.0.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Sqlite/7.0.0-preview.1.22076.6": {
+    "Microsoft.EntityFrameworkCore.Sqlite/7.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ddutWV9sDMaSHuCX2lt5q7OdSFoH7Ta94r6JTemUkOShAKrnA80cgeXCFv3IbcTSgCJIfqiaU9tvpg9g8ngcRQ==",
-      "path": "microsoft.entityframeworkcore.sqlite/7.0.0-preview.1.22076.6",
-      "hashPath": "microsoft.entityframeworkcore.sqlite.7.0.0-preview.1.22076.6.nupkg.sha512"
+      "sha512": "sha512-tufYoEHetVeALPRqzCi4YukL+uoS0pBi/6m3uSCuM5NxO/tTbuizvvBRa3qJNYZOvF3K7m4lUmmcCymKr3JSSQ==",
+      "path": "microsoft.entityframeworkcore.sqlite/7.0.0",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.7.0.0.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.0-preview.1.22076.6": {
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ItRLVrvxX1GR98M+14ytCLDkDBy0tZ/3vM1M1FGUUPwcX03QTHce9FcABA3odWIha84vOPHrKsvmN0VpYpGdoA==",
-      "path": "microsoft.entityframeworkcore.sqlite.core/7.0.0-preview.1.22076.6",
-      "hashPath": "microsoft.entityframeworkcore.sqlite.core.7.0.0-preview.1.22076.6.nupkg.sha512"
+      "sha512": "sha512-aUClrz1PT06fPDY+9f2IeDhYXj3/oPxM0r3I6syiyP3Th59hObVI0QsRu5+y7FbJIkO3NgyAi+e2vzWGhmBVbQ==",
+      "path": "microsoft.entityframeworkcore.sqlite.core/7.0.0",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.core.7.0.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Tools/7.0.0": {
       "type": "package",
@@ -620,33 +654,33 @@
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
     },
-    "SQLitePCLRaw.bundle_e_sqlite3/2.0.7": {
+    "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hn/ba6M/GwthAWvy98LD75g0oeVl3FakHQk84WyO0dAQS8FvtRgXmCUqYtWevCXLY9Xw/1HLy32lhiGO0ghx8g==",
-      "path": "sqlitepclraw.bundle_e_sqlite3/2.0.7",
-      "hashPath": "sqlitepclraw.bundle_e_sqlite3.2.0.7.nupkg.sha512"
+      "sha512": "sha512-ilkvNhrTersLmIVAcDwwPqfhUFCg19Z1GVMvCSi3xk6Akq94f4qadLORQCq/T8+9JgMiPs+F/NECw5uauviaNw==",
+      "path": "sqlitepclraw.bundle_e_sqlite3/2.1.2",
+      "hashPath": "sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512"
     },
-    "SQLitePCLRaw.core/2.0.7": {
+    "SQLitePCLRaw.core/2.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2z+PXZqmwC8K+/4imlqAXBaDYlbkMfNvmDhuTIuJHPsbT9mG1HJcOsRa/Mx7DUiwgIXSj8yXbkjZ6jKHeE6PJQ==",
-      "path": "sqlitepclraw.core/2.0.7",
-      "hashPath": "sqlitepclraw.core.2.0.7.nupkg.sha512"
+      "sha512": "sha512-A8EBepVqY2lnAp3a8jnhbgzF2tlj2S3HcJQGANTYg/TbYbKa8Z5cM1h74An/vy0svhfzT7tVY0sFmUglLgv+2g==",
+      "path": "sqlitepclraw.core/2.1.2",
+      "hashPath": "sqlitepclraw.core.2.1.2.nupkg.sha512"
     },
-    "SQLitePCLRaw.lib.e_sqlite3/2.0.7": {
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-EN8CCTFbPbRZHxStep7VF87O3AXSWB7V3P6rGLesZEMN2QKoxniS8i/ADvUgbt3EyvFyKFkC9HXN2tYCggBsdQ==",
-      "path": "sqlitepclraw.lib.e_sqlite3/2.0.7",
-      "hashPath": "sqlitepclraw.lib.e_sqlite3.2.0.7.nupkg.sha512"
+      "sha512": "sha512-zibGtku8M4Eea1R3ZCAxc86QbNvyEN17mAcQkvWKBuHvRpMiK2g5anG4R5Be7cWKSd1i6baYz8y4dMMAKcXKPg==",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.1.2",
+      "hashPath": "sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512"
     },
-    "SQLitePCLRaw.provider.e_sqlite3/2.0.7": {
+    "SQLitePCLRaw.provider.e_sqlite3/2.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wxhYdl+ijzHpvG+pWXHH+oQHEobiybYEG65yufsljcSs+eLMTAYQhVrBwcNySgfIPY0shEKxTOxep4StexKBww==",
-      "path": "sqlitepclraw.provider.e_sqlite3/2.0.7",
-      "hashPath": "sqlitepclraw.provider.e_sqlite3.2.0.7.nupkg.sha512"
+      "sha512": "sha512-lxCZarZdvAsMl2zw9bXHrXK6RxVhB4b23iTFhCOdHFhxfbsxLxWf+ocvswJwR/9Wh/E//ddMi+wJGqUKV7VwoA==",
+      "path": "sqlitepclraw.provider.e_sqlite3/2.1.2",
+      "hashPath": "sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.5.0": {
       "type": "package",

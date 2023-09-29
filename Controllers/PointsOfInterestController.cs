@@ -45,7 +45,7 @@ namespace CityInfoAPI.Controllers
             
         }
 
-        [HttpGet("{pointofinterestid}", Name = "GetPointOfInterest")]
+        [HttpGet("{pointOfInterestId}", Name = "GetPointOfInterest")]
         public ActionResult<PointOfInterestDto> GetPointOfInterest(int cityId, int pointOfInterestId)
         {
             var city = _citiesDataStore.Cities.FirstOrDefault(x => x.Id == cityId);
