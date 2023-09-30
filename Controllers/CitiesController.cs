@@ -1,5 +1,7 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using CityInfoAPI.Models;
+using CityInfoAPI.Services;
 
 namespace CityInfoAPI.Controllers
 {
@@ -7,31 +9,53 @@ namespace CityInfoAPI.Controllers
     [Route("api/[controller]")]
     public class CitiesController : ControllerBase
     {
-        private readonly CitiesDataStore _citiesDataStore;
+        private readonly ICityInfoRepository _cityInfoRepository;
+        private readonly IMapper _mapper;
 
-        public CitiesController(CitiesDataStore citiesDataStore)
+        public CitiesController(ICityInfoRepository cityInfoRepository,
+            IMapper mapper)
         {
-            _citiesDataStore = citiesDataStore;
+            _cityInfoRepository = cityInfoRepository ?? throw new ArgumentNullException(nameof(cityInfoRepository));
+            _mapper = mapper;
         }
         
         [HttpGet]
-        public ActionResult<IEnumerable<CityDto>> GetCities()
+        public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestDto>>> GetCities()
         {
-            var cities =_citiesDataStore.Cities;
-            return Ok(cities);
+            var cityEntities = await _cityInfoRepository.GetCitiesAsync();
+            // Manually map the database city to CityWithoutPointsOfInterestDto
+            //=========================================================================
+            // var results = new List<CityWithoutPointsOfInterestDto>();
+            // foreach (var cityEntity in cityEntities)
+            // {
+            //     results.Add(new CityWithoutPointsOfInterestDto()
+            //     {
+            //         Id = cityEntity.Id,
+            //         Description = cityEntity.Description,
+            //         Name = cityEntity.Name
+            //     });
+            // }
+            //=========================================================================
+            return Ok(_mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cityEntities));
         }
 
         [HttpGet("{id}")]
-        public ActionResult<CityDto> GetCity(int id)
+        public async Task<IActionResult> GetCity
+         // since it has two result options, the return type cannot be like ActionResult<CityDto>
+         // or ActionResult<CityWithoutPointsOfInterestDto>, so use the Task<IActionResult> as generic returned type
+            (int id, bool includedPointsOfInterest = false)
         {
-            var city = _citiesDataStore.Cities.FirstOrDefault(x => x.Id == id);
-
+            var city = await _cityInfoRepository.GetCityAsync(id, includedPointsOfInterest);
             if (city == null)
             {
                 return NotFound();
             }
 
-            return Ok(city);
+            if (includedPointsOfInterest)
+            {
+                return Ok(_mapper.Map<CityDto>(city));
+            }
+            return Ok(_mapper.Map<CityWithoutPointsOfInterestDto>(city));
         }
     }
 }

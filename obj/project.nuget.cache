@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "4nCjg4alud+tAxFKkOSXF7uk9DurYwG7aWxYJ21sOZCRMsKZBJh89LHermBswMjDPwd2BzPcksdmK8fDZC97yg==",
+  "dgSpecHash": "h/TK9p100yzJ9lJwHedmnaSd3O/UrEPqMd17WltdxQSD6efDv576Rs+afjCoef7mTZ0JTCep0U1yf5vWIgfj8Q==",
   "success": true,
   "projectFilePath": "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/CityInfoApi.csproj",
   "expectedPackageFiles": [
+    "/Users/yee/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/yee/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/yee/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/yee/.nuget/packages/microsoft.aspnetcore.jsonpatch/8.0.0-rc.1.23421.29/microsoft.aspnetcore.jsonpatch.8.0.0-rc.1.23421.29.nupkg.sha512",
     "/Users/yee/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/7.0.11/microsoft.aspnetcore.mvc.newtonsoftjson.7.0.11.nupkg.sha512",
