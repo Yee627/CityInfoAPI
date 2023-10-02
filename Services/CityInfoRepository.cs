@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using CityInfoAPI.DbContexts;
 using CityInfoAPI.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -7,15 +8,20 @@ namespace CityInfoAPI.Services;
 public class CityInfoRepository : ICityInfoRepository
 {
     private readonly CityInfoContext _context;
+    private readonly ILogger<CityInfoRepository> _logger;
+    private readonly ILogger _factoryLogger;
 
-    public CityInfoRepository(CityInfoContext context)
+    public CityInfoRepository(CityInfoContext context, ILogger<CityInfoRepository> logger,
+        ILoggerFactory loggerFactory)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
+        _logger = logger;
+        _factoryLogger = loggerFactory.CreateLogger("DataAccessLayer");
     }
     
     public async Task<IEnumerable<City>> GetCitiesAsync()
     {
-        return await _context.Cities.OrderBy(c => c.Name).ToListAsync();
+        return await _context.Cities.OrderBy(c => c.Id).ToListAsync();
     }
 
     public async Task<bool> CityExistsAsync(int cityId)
@@ -27,8 +33,15 @@ public class CityInfoRepository : ICityInfoRepository
     {
         if (includePointsOfInterest)
         {
-            return await _context.Cities.Include(c => c.PointsOfInterest)
+            var timer = new Stopwatch();
+            timer.Start();
+            var city = await _context.Cities.Include(c => c.PointsOfInterest)
                 .Where(c => c.Id == cityId).FirstOrDefaultAsync();
+            timer.Stop();
+            
+            _logger.LogDebug("Querying city for {id} finished in {milliseconds} milliseconds", cityId,timer.ElapsedMilliseconds);
+            _factoryLogger.LogInformation("(F)Querying city for {id} finished in {ticks} milliseconds", cityId,timer.ElapsedTicks);
+            return city;
         }
 
         return await _context.Cities.Where(c => c.Id == cityId).FirstOrDefaultAsync();

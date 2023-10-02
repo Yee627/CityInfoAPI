@@ -11,12 +11,14 @@ namespace CityInfoAPI.Controllers
     {
         private readonly ICityInfoRepository _cityInfoRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<CitiesController> _logger;
 
         public CitiesController(ICityInfoRepository cityInfoRepository,
-            IMapper mapper)
+            IMapper mapper, ILogger<CitiesController> logger)
         {
             _cityInfoRepository = cityInfoRepository ?? throw new ArgumentNullException(nameof(cityInfoRepository));
             _mapper = mapper;
+            _logger = logger;
         }
         
         [HttpGet]
@@ -45,9 +47,11 @@ namespace CityInfoAPI.Controllers
          // or ActionResult<CityWithoutPointsOfInterestDto>, so use the Task<IActionResult> as generic returned type
             (int id, bool includedPointsOfInterest = false)
         {
+            _logger.LogDebug("Getting City with Id: {id}", id);
             var city = await _cityInfoRepository.GetCityAsync(id, includedPointsOfInterest);
             if (city == null)
             {
+                _logger.LogWarning("No city found for ID: {id}", id);
                 return NotFound();
             }
 
