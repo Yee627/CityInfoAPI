@@ -38,7 +38,6 @@ public class AuthenticationController : ControllerBase
          LastName = lastName;
          City = city;
       }
-
    }
    
    public AuthenticationController(IConfiguration configuration)
@@ -60,18 +59,20 @@ public class AuthenticationController : ControllerBase
          return Unauthorized();
       }
       
-      //step2: create a tokem
+      //step2: create a token
       var securityKey = new SymmetricSecurityKey(
          Encoding.ASCII.GetBytes(_configuration["Authentication:SecretForKey"]));
       var signingCredentials = new SigningCredentials(
          securityKey, SecurityAlgorithms.HmacSha256);
              
-      var claimsForToken = new List<Claim>();
-      claimsForToken.Add(new Claim("sub", user.UserId.ToString()));
-      claimsForToken.Add(new Claim("given_name", user.FirstName));
-      claimsForToken.Add(new Claim("family_name", user.LastName));
-      claimsForToken.Add(new Claim("city", user.City));
-             
+      var claimsForToken = new List<Claim>
+      {
+         new Claim("sub", user.UserId.ToString()),
+         new Claim("given_name", user.FirstName),
+         new Claim("family_name", user.LastName),
+         new Claim("city", user.City)
+      };
+
       var jwtSecurityToken = new JwtSecurityToken(
          _configuration["Authentication:Issuer"],
          _configuration["Authentication:Audience"],
@@ -94,6 +95,6 @@ public class AuthenticationController : ControllerBase
          userName ?? "",
          "Zhao",
          "Yi",
-         "Galway");
+         "Paris");
    }
 }

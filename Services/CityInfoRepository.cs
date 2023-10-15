@@ -54,6 +54,11 @@ public class CityInfoRepository : ICityInfoRepository
         return await _context.Cities.AnyAsync(c => c.Id == cityId);
     }
 
+    public async Task<bool> CityNameMatchesCityId(string? cityName, int cityId)
+    {
+        return await _context.Cities.AnyAsync(c => c.Id == cityId && c.Name == cityName);
+    }
+
     public async Task<City?> GetCityAsync(int cityId, bool includePointsOfInterest)
     {
         if (includePointsOfInterest)

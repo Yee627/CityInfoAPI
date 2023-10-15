@@ -3,11 +3,13 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using CityInfoAPI.Models;
 using CityInfoAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 
 namespace CityInfoAPI.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/cities/{cityId}/[controller]")]
     public class PointsOfInterestController : ControllerBase
     {
@@ -30,17 +32,22 @@ namespace CityInfoAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PointOfInterestDto>>> GetPointsOfInterest(int cityId)
         {
+            var cityName = User.Claims.FirstOrDefault(c => c.Type == "city")?.Value;
+            if (!await _cityInfoRepository.CityNameMatchesCityId(cityName, cityId))
+            {
+                return Forbid();
+            }
+            
+            if (!await _cityInfoRepository.CityExistsAsync(cityId))
+            {
+                _logger.LogInformation($"city with id {cityId} wasn't found when accessing point of interest");
+                return NotFound();
+            }
 
-                if (!await _cityInfoRepository.CityExistsAsync(cityId))
-                {
-                    _logger.LogInformation($"city with id {cityId} wasn't found when accessing point of interest");
-                    return NotFound();
-                }
+            var pointsOfInterestForCity = await _cityInfoRepository
+                .GetPointsOfInterestForCityAsync(cityId);
 
-                var pointsOfInterestForCity = await _cityInfoRepository
-                    .GetPointsOfInterestForCityAsync(cityId);
-
-                return Ok(_mapper.Map<IEnumerable<PointOfInterestDto>>(pointsOfInterestForCity));
+            return Ok(_mapper.Map<IEnumerable<PointOfInterestDto>>(pointsOfInterestForCity));
         }
 
         [HttpGet("{pointOfInterestId}", Name = "GetPointOfInterest")]
@@ -83,31 +90,9 @@ namespace CityInfoAPI.Controllers
             new
             {
                 cityId = cityId,
-                pointofinterestid = createdPointOfInterestToReturn.Id
+                pointOfInterestId = createdPointOfInterestToReturn.Id
             },
             createdPointOfInterestToReturn);
-
-            //====================================================================
-            //demo purposed - to be improved
-            // var maxPointOfInterestId = _citiesDataStore.Cities.SelectMany(
-            //     c => c.PointsOfInterest).Max(p => p.Id);
-
-            // var finalPointOfInterest = new PointOfInterestDto()
-            // {
-            //     Id = ++maxPointOfInterestId,
-            //     Name = pointOfInterest.Name,
-            //     Description = pointOfInterest.Description
-            // };
-
-            // city.PointsOfInterest.Add(finalPointOfInterest);
-            // return CreatedAtRoute("GetPointOfInterest",
-            //     new
-            //     {
-            //         cityId = cityId,
-            //         pointofinterestid = finalPointOfInterest.Id
-            //     },
-            //     finalPointOfInterest);
-            //====================================================================
         }
 
         [HttpPut("{pointOfInterestId}")]

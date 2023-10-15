@@ -3,10 +3,12 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using CityInfoAPI.Models;
 using CityInfoAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CityInfoAPI.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class CitiesController : ControllerBase
     {

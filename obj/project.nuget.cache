@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "mBh3LzqiKiX5YyzAKVgyjuBSG6IFyq9hYRdn9Ucw1vaiHFFXnM5rNH2cxl8F+qhP8h0sF+3+8kzX9Ey9B4eKxg==",
+  "dgSpecHash": "e3zLQEgDsFUQ9PP4KHm/uEIwDfMPTphfy+RTmaAwbQRDBdmeqn/uup6110Rx66LGkfxHft9puM0AlKXKHLrlBw==",
   "success": true,
   "projectFilePath": "/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/CityInfoApi.csproj",
   "expectedPackageFiles": [
     "/Users/yee/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/yee/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/yee/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/yee/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.0/microsoft.aspnetcore.authentication.jwtbearer.7.0.0.nupkg.sha512",
     "/Users/yee/.nuget/packages/microsoft.aspnetcore.jsonpatch/8.0.0-rc.1.23421.29/microsoft.aspnetcore.jsonpatch.8.0.0-rc.1.23421.29.nupkg.sha512",
     "/Users/yee/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/7.0.11/microsoft.aspnetcore.mvc.newtonsoftjson.7.0.11.nupkg.sha512",
     "/Users/yee/.nuget/packages/microsoft.aspnetcore.openapi/7.0.8/microsoft.aspnetcore.openapi.7.0.8.nupkg.sha512",
@@ -34,6 +35,8 @@
     "/Users/yee/.nuget/packages/microsoft.identitymodel.abstractions/7.0.2/microsoft.identitymodel.abstractions.7.0.2.nupkg.sha512",
     "/Users/yee/.nuget/packages/microsoft.identitymodel.jsonwebtokens/7.0.2/microsoft.identitymodel.jsonwebtokens.7.0.2.nupkg.sha512",
     "/Users/yee/.nuget/packages/microsoft.identitymodel.logging/7.0.2/microsoft.identitymodel.logging.7.0.2.nupkg.sha512",
+    "/Users/yee/.nuget/packages/microsoft.identitymodel.protocols/6.15.1/microsoft.identitymodel.protocols.6.15.1.nupkg.sha512",
+    "/Users/yee/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.15.1/microsoft.identitymodel.protocols.openidconnect.6.15.1.nupkg.sha512",
     "/Users/yee/.nuget/packages/microsoft.identitymodel.tokens/7.0.2/microsoft.identitymodel.tokens.7.0.2.nupkg.sha512",
     "/Users/yee/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
     "/Users/yee/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",

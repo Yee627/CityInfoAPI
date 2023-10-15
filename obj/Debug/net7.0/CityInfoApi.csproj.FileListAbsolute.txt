@@ -120,3 +120,6 @@
 /Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
 /Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
 /Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/yee/Downloads/CityInfo/CityInfo.API/CityInfoAPI/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
